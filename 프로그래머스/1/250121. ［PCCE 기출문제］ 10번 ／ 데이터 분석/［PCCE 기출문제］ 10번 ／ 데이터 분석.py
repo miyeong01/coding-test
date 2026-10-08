@@ -7,27 +7,12 @@
 def solution(data, ext, val_ext, sort_by):
     answer = []
     
+    idx = {"code" : 0, "date" : 1, "maximum" : 2, "remain" : 3}
+    
     for d in data:
-        if ext == "code":
-            if d[0] < val_ext:
-                answer.append(d)
-        elif ext == "date":
-            if d[1] < val_ext:
-                answer.append(d)
-        elif ext == "maximum":
-            if d[2] < val_ext:
-                answer.append(d)
-        else:
-            if d[3] < val_ext:
-                answer.append(d)
-                
-    if sort_by == "code":
-        answer = sorted(answer, key = lambda x:x[0])
-    elif sort_by == "date":
-        answer = sorted(answer, key = lambda x:x[1])
-    elif sort_by == "maximum":
-        answer = sorted(answer, key = lambda x:x[2])
-    else:
-        answer = sorted(answer, key = lambda x:x[3])
+        if d[idx[ext]] < val_ext:
+            answer.append(d)
+    
+    answer = sorted(answer, key = lambda x:x[idx[sort_by]])
         
     return answer
