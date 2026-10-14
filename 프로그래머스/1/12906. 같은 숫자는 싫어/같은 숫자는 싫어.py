@@ -4,13 +4,9 @@
 def solution(arr):
     answer = []
     
-    n = -1 # 비교하는 숫자
-    for i in range(len(arr)):
-        if n == arr[i]:
-            continue
-        else:
-            n = arr[i]
+    for n in arr:
+        if not answer or answer[-1] != n:
             answer.append(n)
-
+    
     return answer
             
