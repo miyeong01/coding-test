@@ -11,17 +11,7 @@ def solution(n, words):
     order = 0
     
     for i in range(len(words) - 1):
-        if words[i][-1] != words[i+1][0]:
-            number = (i+1) % n + 1
-            order = int((i+1) // n) + 1
-            break
-        
-        if words[i+1] in words[:i+1]:
-            number = (i+1) % n + 1
-            order = int((i+1) // n) + 1
-            break
-            
-        if len(words[i+1]) == 1:
+        if words[i][-1] != words[i+1][0] or words[i+1] in words[:i+1] or len(words[i+1]) == 1:
             number = (i+1) % n + 1
             order = int((i+1) // n) + 1
             break
