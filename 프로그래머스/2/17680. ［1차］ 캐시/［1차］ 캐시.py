@@ -14,14 +14,15 @@ def solution(cacheSize, cities):
         return len(cities) * 5
     
     for city in cities:
-        if city.lower() in cache: # cache hit
-            cache.remove(city.lower())
-            cache.append(city.lower())
+        city_l = city.lower()
+        if city_l in cache: # cache hit
+            cache.remove(city_l)
+            cache.append(city_l)
             answer += 1
         else:
             if len(cache) >= cacheSize:
                 cache.pop(0)
-            cache.append(city.lower())
+            cache.append(city_l)
             answer += 5
             
     return answer
