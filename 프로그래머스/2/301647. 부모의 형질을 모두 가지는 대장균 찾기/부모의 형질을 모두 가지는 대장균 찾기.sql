@@ -1,0 +1,10 @@
+-- 코드를 작성해주세요
+-- 부모의 형질을 모두 보유한 대장균의 ID, 대장균의 형질, 부모 대장균의 형질 출력
+-- ID 오름차순
+
+SELECT B.ID, B.GENOTYPE, A.GENOTYPE
+FROM ECOLI_DATA AS A
+JOIN ECOLI_DATA AS B
+ON A.ID = B.PARENT_ID
+WHERE (A.GENOTYPE & B.GENOTYPE) = A.GENOTYPE
+ORDER BY B.ID ASC;
