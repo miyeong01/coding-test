@@ -7,10 +7,7 @@ def solution(numbers):
     
     answer = ''.join(numbers)
     
-    while answer[0] == '0':
-        if len(answer) == 1:
-            return answer
-        else:
-            answer = answer[1:]
-    
-    return answer
+    if answer[0] == '0':
+        return '0'
+    else:
+        return answer
